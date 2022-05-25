@@ -1,5 +1,5 @@
 <template>
-  <el-form :model="form" ref="formRef">
+  <el-form :model="form" ref="formRef" :rules="rules">
     <el-form-item prop="username">
       <el-input v-model="form.username" placeholder="Username" />
     </el-form-item>
@@ -15,6 +15,7 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import { useRouter, useRoute } from 'vue-router'
+import { ElMessage } from 'element-plus'
 import useUserStore from '@/store/user'
 
 const router = useRouter()
@@ -37,39 +38,33 @@ const onSubmit = async (formEl) => {
   if (!formEl) return
   await formEl.validate((valid, fields) => {
     if (valid) {
-      console.log('submit!')
+      const user = useUserStore()
+      user.login(form).then(() => {
+        const { redirect } = route.query
+        router.push(redirect ? redirect : '/');
+      }).catch(e => {
+        ElMessage.error(e)
+      })
     } else {
       console.log('error submit!', fields)
     }
   })
 }
 
-async function onSubmit() {
-  if (!formEl) return
-  try {
-    const user = useUserStore()
-    await user.login(form)
-    const { redirect } = route.query
-    console.log(redirect)
-    router.push(redirect ? redirect : '/');
-  } catch (e) {
-    message.error(e)
-  }
-}
 </script>
 
 <style scoped lang="scss">
-.ant-form {
-  width: 300px;
-  height: 400px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  .ant-col {
-    width: 100%;
-  }
-}
+//.ant-form {
+//  width: 300px;
+//  height: 400px;
+//  position: absolute;
+//  left: 0;
+//  right: 0;
+//  top: 0;
+//  bottom: 0;
+//  margin: auto;
+//  .ant-col {
+//    width: 100%;
+//  }
+//}
 </style>

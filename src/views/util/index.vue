@@ -1,29 +1,25 @@
 <template>
   <div>
-    <a-row align="middle">
+    <el-row align="middle">
       <span class="h-m-r-10">{{ copyText }}</span>
-      <a-button type="primary" @click="copy">复制</a-button>
-    </a-row>
+      <el-button type="primary" @click="onCopy">复制</el-button>
+    </el-row>
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
 import { copy } from 'libs/util'
-export default {
-  name: "Util",
-  data() {
-    return {
-      copyText: '我是需要被复制的内容'
-    }
-  },
-  methods: {
-    copy() {
-      copy(this.copyText).then(() => {
-        this.$message.success('复制成功');
-      }, () => {
-        this.$message.error('复制失败');
-      })
-    }
-  }
+import { ElMessage } from 'element-plus'
+
+const copyText = ref('我是需要被复制的内容')
+
+const onCopy = () => {
+  copy(copyText.value).then(() => {
+    this.$message.success('复制成功');
+    ElMessage.success('复制成功')
+  }, () => {
+    ElMessage.error('复制失败')
+  })
 }
 </script>

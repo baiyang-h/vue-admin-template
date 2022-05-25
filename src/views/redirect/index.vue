@@ -1,11 +1,10 @@
-<script>
-  export default {
-    name: "Redirect",
-    created() {
-      this.$router.replace({ path: '/' + this.$route.params.path })
-    },
-    render() {
-      return ''
-    }
-  }
+<script setup>
+import { useRouter, useRoute } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
+
+router.replace({
+  path: '/' + route.params.path
+})
 </script>
