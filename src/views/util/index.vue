@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { copy } from 'libs/util'
+import { copy } from '@/libs/util'
 import { ElMessage } from 'element-plus'
 
 const copyText = ref('我是需要被复制的内容')

@@ -42,7 +42,7 @@ const constantRoutes = [
     {
         path: '/login',
         name: 'Login',
-        component: () => import(/* webpackChunkName: "login" */ '@/views/login')
+        component: () => import('@/views/login')
     },
     {
         path: '/redirect',

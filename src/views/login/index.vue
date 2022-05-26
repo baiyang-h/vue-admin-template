@@ -1,5 +1,9 @@
 <template>
-  <el-form :model="form" ref="formRef" :rules="rules">
+  <el-form
+    :model="form"
+    ref="formRef"
+    :rules="rules"
+  >
     <el-form-item prop="username">
       <el-input v-model="form.username" placeholder="Username" />
     </el-form-item>
@@ -40,8 +44,8 @@ const onSubmit = async (formEl) => {
     if (valid) {
       const user = useUserStore()
       user.login(form).then(() => {
-        const { redirect } = route.query
-        router.push(redirect ? redirect : '/');
+        // const { redirect } = route.query
+        // router.push(redirect ? redirect : '/');
       }).catch(e => {
         ElMessage.error(e)
       })
@@ -54,17 +58,17 @@ const onSubmit = async (formEl) => {
 </script>
 
 <style scoped lang="scss">
-//.ant-form {
-//  width: 300px;
-//  height: 400px;
-//  position: absolute;
-//  left: 0;
-//  right: 0;
-//  top: 0;
-//  bottom: 0;
-//  margin: auto;
-//  .ant-col {
-//    width: 100%;
-//  }
-//}
+.el-form {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  .ant-col {
+    width: 100%;
+  }
+}
 </style>
