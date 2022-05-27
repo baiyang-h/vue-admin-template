@@ -40,13 +40,13 @@ module.exports = defineConfig({
     // before: require('./mock/mock-server'),
 
     proxy: {
-      '/h': {
-        target: ' http://47.99.60.91:7300/mock/628ef71df64e0a71479476d9/h',
+      '^/h/': {
+        target: 'http://47.99.60.91:7300/mock/628ef71df64e0a71479476d9',
         ws: true,
         changeOrigin: true,
-        // pathRewrite: {
-        //   '^/api': '',
-        // },
+        pathRewrite: {
+          // '^/h': '',
+        },
         router: {},
       },
     }

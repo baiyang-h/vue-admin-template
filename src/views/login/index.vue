@@ -43,9 +43,12 @@ const onSubmit = async (formEl) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
       const user = useUserStore()
-      user.login(form).then(() => {
-        // const { redirect } = route.query
-        // router.push(redirect ? redirect : '/');
+      user.login({
+        username: form.username,
+        password: form.password,
+      }).then(() => {
+        const { redirect } = route.query
+        router.push(redirect ? redirect : '/');
       }).catch(e => {
         ElMessage.error(e)
       })

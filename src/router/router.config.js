@@ -57,6 +57,11 @@ const constantRoutes = [
         ]
     },
     {
+        path: '/401',
+        name: '401',
+        component: () => import('@/views/error-page/401')
+    },
+    {
         path: '/404',
         name: '404',
         component: () => import('@/views/error-page/404')

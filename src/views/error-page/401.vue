@@ -1,3 +1,3 @@
 <template>
-  <div>Page401</div>
+  <div>无权限</div>
 </template>

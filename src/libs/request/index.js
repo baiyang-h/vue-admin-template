@@ -12,7 +12,7 @@ else if (process.env.NODE_ENV == 'production') {
 }
 */
 const service = axios.create({
-    baseURL: 'h',    // url = base url + request url       也可   process.env.REACT_APP_A
+    baseURL: '/h',    // url = base url + request url       也可   process.env.REACT_APP_A
     timeout: 10000,
     headers: {
         // application/json;charset=UTF-8
@@ -85,6 +85,15 @@ export const basePost = (url, data, config={}) => {
         method: "post",
         url,
         data,
+        ...config
+    });
+};
+
+export const baseGet = (url, params, config={}) => {
+    return service({
+        method: "get",
+        url,
+        params,
         ...config
     });
 };
