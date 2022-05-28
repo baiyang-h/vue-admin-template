@@ -11,7 +11,7 @@ export default {
             name: 'Table',
             meta: {
                 title: 'Table',
-                icon: 'el-icon-menu',
+                icon: 'icon-biaoge_o'
             },
             component: () => import('@/views/table')
         },

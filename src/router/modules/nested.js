@@ -6,8 +6,8 @@ export default {
     name: 'Nested',
     meta: {
         title: '路由嵌套',
-        icon: 'el-icon-menu',
-        isSubmenu: true
+        isSubmenu: true,
+        icon: 'icon-m-qiantao'
     },
     component: Layout,
     children: [

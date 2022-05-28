@@ -80,7 +80,8 @@ const appRoutes = [
                 name: 'Home',
                 meta: {
                     title: 'Home',
-                    affix: true
+                    affix: true,
+                    icon: 'icon-home'
                 },
                 component: () => import('@/views/home')
             }
@@ -94,8 +95,8 @@ const appRoutes = [
         roles: ['admin', 'other'],
         meta: {
             title: 'Permission',
-            icon: 'el-icon-menu',
-            isSubmenu: true
+            isSubmenu: true,
+            icon: 'icon-quanxian'
         },
         children: [
             {

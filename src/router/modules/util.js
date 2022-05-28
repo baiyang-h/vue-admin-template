@@ -11,7 +11,7 @@ export default {
             name: 'Util',
             meta: {
                 title: '工具类',
-                icon: 'el-icon-menu',
+                icon: 'icon-gongju'
             },
             component: () => import('@/views/util')
         }

@@ -1,40 +1,16 @@
-// 邮箱
-export const isEmail = (s) => {
-  return /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(s)
-}
-
-// 手机号码
-export const isMobile = (s) => {
-  return /^1[0-9]{10}$/.test(s)
-}
-
-// 电话号码
-export const isPhone = (s) => {
-  return /^([0-9]{3,4}-)?[0-9]{7,8}$/.test(s)
-}
-
-//  是否url地址
-// export const isURL = (s) => {
-//   return /^http[s]?:\/\/.*/.test(s)
-// }
-
-// 是否url地址
-export const isUrl = path => {
-  const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
-  return reg.test(path);
-}
-
-//非零正整数
-export const NONZERO_REGEXP = /^[1-9]\d*$/
-
 // 数字+字母
 export const NUMBER_LETTER_REGEXP = /^[0-9a-zA-Z]*$/
 
 // 整数+小数
 export const FIGURE_REGEXP = /^(\d+(\.\d*)?)?$/
 
+// 只能输入字母
+function isLetter(value) {
+  return /^[a-zA-Z]*$/.test(value);
+}
+
 //判断类型集合
-export const checkStr = (str, type) => {
+export const check = (str, type) => {
   switch (type) {
     case 'phone':   //手机号码
       return /^1[3|4|5|6|7|8|9][0-9]{9}$/.test(str);
@@ -75,6 +51,51 @@ export const checkStr = (str, type) => {
   }
 }
 
+// 邮箱
+export const isEmail = (s) => {
+  return /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(s)
+}
+
+// 手机号码
+export const isMobile = (s) => {
+  return /^1[0-9]{10}$/.test(s)
+}
+
+// 电话号码
+export const isPhone = (s) => {
+  return /^([0-9]{3,4}-)?[0-9]{7,8}$/.test(s)
+}
+
+//  是否url地址
+// export const isURL = (s) => {
+//   return /^http[s]?:\/\/.*/.test(s)
+// }
+
+// 是否url地址
+export const isUrl = path => {
+  const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
+  return reg.test(path);
+}
+
+//非零正整数
+export const NONZERO_REGEXP = /^[1-9]\d*$/
+
+// 验证十进制数字
+export const isNumber = (value) => {
+  return /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(value)
+}
+
+// 验证整数
+export const isDigits = (value) => {
+  return /^\d+$/.test(value)
+}
+
+// 验证身份证号码
+export const isIdCard = (value) => {
+  return /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(
+    value)
+}
+
 // 严格的身份证校验
 export const isCardID = (sId) => {
   if (!/(^\d{15}$)|(^\d{17}(\d|X|x)$)/.test(sId)) {
@@ -111,3 +132,4 @@ export const isCardID = (sId) => {
 
   return true
 }
+

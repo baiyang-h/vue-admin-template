@@ -3,7 +3,7 @@
  */
 
 import { join } from 'path'
-import { isUrl } from "@/libs/common/regexp";
+import { isUrl, isNumber } from "./common/regexp";
 
 /* ============================== 路由/菜单部分  ============================= */
 
@@ -166,4 +166,13 @@ export function flatRoutes(routes) {
     }
   })
   return flatData
+}
+
+
+/* ============================== 其他  ============================= */
+// 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
+export function addUnit(value='auto', unit='px') {
+  value = String(value);
+  // 验证规则中的number判断是否为数值
+  return isNumber(value) ? `${value}${unit}` : value;
 }

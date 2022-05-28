@@ -11,7 +11,7 @@ export default {
             name: 'Cache',
             meta: {
                 title: '缓存模块测试',
-                icon: 'el-icon-menu',
+                icon: 'icon-huancunzhongxin'
             },
             component: () => import('@/views/cache')
         }

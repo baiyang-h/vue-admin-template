@@ -4,10 +4,8 @@
     :index="menuItem.path"
   >
     <template #title>
-      <span>
-        <el-icon><icon-menu /></el-icon>
-        <span>{{ menuItem.meta && menuItem.meta.title }}</span>
-      </span>
+      <el-icon v-if="menuItem.meta && menuItem.meta.icon"><Icon :icon="menuItem.meta.icon" /></el-icon>
+      <span>{{ menuItem.meta && menuItem.meta.title }}</span>
     </template>
     <sidebar-item
       v-for="child in menuItem.children"
@@ -19,15 +17,15 @@
     v-else
     :index="menuItem.path"
   >
-    <el-icon><icon-menu /></el-icon>
+    <el-icon v-if="menuItem.meta && menuItem.meta.icon"><Icon :icon="menuItem.meta.icon" /></el-icon>
     <span>{{ menuItem.meta && menuItem.meta.title }}</span>
   </el-menu-item>
 </template>
 
 <script setup>
-import { Menu as IconMenu } from '@element-plus/icons-vue'
-
+import Icon from '@/components/icon'
 defineProps({
+  // 点击菜单时的信息
   menuItem: {
     type: Object,
     required: true

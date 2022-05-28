@@ -11,7 +11,7 @@ export default {
             name: 'Form',
             meta: {
                 title: 'Form',
-                icon: 'el-icon-menu',
+                icon: 'icon-biaodan'
             },
             component: () => import('@/views/form')
         }
