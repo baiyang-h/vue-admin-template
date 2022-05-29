@@ -1,12 +1,11 @@
-<script setup>
-import { useRouter, useRoute } from 'vue-router'
-
-const router = useRouter()
-const route = useRoute()
-
-const { redirect, ..._query } = route.query
-router.replace({
-  path: redirect,
-  query: _query
-})
+<script>
+export default {
+  name: "Redirect",
+  created() {
+    this.$router.replace({ path: '/' + this.$route.params.path })
+  },
+  render() {
+    return null
+  }
+}
 </script>

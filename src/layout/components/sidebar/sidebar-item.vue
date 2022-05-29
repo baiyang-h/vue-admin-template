@@ -5,7 +5,7 @@
   >
     <template #title>
       <el-icon v-if="menuItem.meta && menuItem.meta.icon"><Icon :icon="menuItem.meta.icon" /></el-icon>
-      <span>{{ menuItem.meta && menuItem.meta.title }}</span>
+      <span class="h-line-1">{{ menuItem.meta && menuItem.meta.title }}</span>
     </template>
     <sidebar-item
       v-for="child in menuItem.children"
@@ -18,7 +18,7 @@
     :index="menuItem.path"
   >
     <el-icon v-if="menuItem.meta && menuItem.meta.icon"><Icon :icon="menuItem.meta.icon" /></el-icon>
-    <span>{{ menuItem.meta && menuItem.meta.title }}</span>
+    <span class="h-line-1">{{ menuItem.meta && menuItem.meta.title }}</span>
   </el-menu-item>
 </template>
 

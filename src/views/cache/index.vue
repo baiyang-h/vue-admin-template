@@ -5,6 +5,11 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'Cache'
+}
+</script>
 <script setup>
 import { ref } from 'vue';
 
